@@ -36,49 +36,24 @@
 				</div>
 			</div><br>
               
-            <div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-					<div class="info-box blue-bg">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div class="info-box blue-bg">
           <span ng-controller="infoBoxEast">
             <!--Farnham-->
-             <!-- <span ng-include="'templates/infobox/infoBox.html'"  ng-model="infoBoxEast"></span> -->
-             <span>
-                <i class="fa fa-building-o"></i>    
-                  <div class="title">Farnham</div>
-                  <div class="">
-                    <span class="count" id="qtyonhand_east">{{Values.Qtyonhand_east | number : 0}}</span>
-                    <span class="title-cost">&nbspCost:&nbsp</span>
-                    <span class="count-cost" id="avgcost_east">{{Values.Avgcost_east | currency : $ : 2}}</span>
-                    <span class="count-cost-avail" id="qtyavail_east">{{Values.Qtyonhand_east -- Values.eastValues.Qtyreserved_east -- Values.eastValues.Qtycommit_east}}</span>
-                    <span class="count-onorder" id="qtyonorder_east">{{Values.qtyOnOrder_east}}</span>
-                    <span class="title-cost">&nbspCost:&nbsp</span>
-                    <span class="count-cost" id="replcost_east">{{Values.Replcost_east |  currency : $ : 2 }}</span>
-                    <span class="label-reserved">Reserved:</span>
-                    <span class="rsvd" id="qtyreserved_east">{{Values.Qtyreserved_east | number : 0}}</span>
-
-                  </div>
-                  <div class="">
-                    <span class="desc">On Hand</span>
-                    <span class="desc-avail">Available</span>
-                    <span class="label-onorder">On Order</span> 
-                    <span class="label-comm">Comitted:</span>
-                    <span class="comm" id="qtycommit_east">{{Values.Qtycommit_east | number : 0}}</span>
-                  </div>
+               <span ng-include="'templates/infobox/infoBox.html'"></span>
            </span>
-
-
-             <!-- fin template -->
-             </span>
-				    <!-- inserer template ici -->
-				    <br>
+            <!-- inserer template ici -->
+            <br>
             <!--Montreal-->
-            		<!-- inserer template -->
-                        					
-					</div><!--/.info-box-->			
-				</div><!--/.col-->
+             <span ng-controller="infoBoxWest">
+               <span ng-include="'templates/infobox/infoBox.html'"></span>
+             <!-- fin template -->
+             </span>                  
+          </div><!--/.info-box-->     
+        </div><!--/.col-->
 
-			</div><!--/.row-->
-
+      </div><!--/.row-->
 <div class="row">
                         <div class="col-lg-6">
                       <!--Project Activity start-->

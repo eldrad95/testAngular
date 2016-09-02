@@ -40,8 +40,15 @@ myWebPart.controller('infoBoxEast', function($scope, $interval, Values){
 		$scope.Values = Values.getEastValues();
 	}
 	$interval($scope.getData,1000);
+	$scope.city = 'Farnham';
 });
-
+myWebPart.controller('infoBoxWest', function($scope, $interval, Values){
+	$scope.getData = function() {
+		$scope.Values = Values.getEastValues();
+	}
+	$interval($scope.getData,1000);
+	$scope.city = 'Montreal';
+});
 
 
 // var searchModule = 

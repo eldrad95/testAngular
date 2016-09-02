@@ -1,25 +1,24 @@
 
 <!-- <script type="text/javascript" src="inbox.js"></script> -->
 <span>
-<i class=" -building-o" ng-model="inBoxEast"></i>    
-            <div class="title">rnham</div>
-						<div class="">
-              <span class="count" id="qtyonhand_east">{{qtyOnHand}}</span>
-              <span class="title-cost">&nbspCost:&nbsp</span>
-              <span class="count-cost" id="avgcost_east">{{avgCost}}</span>
-              <span class="count-cost-avail" id="qtyavail_east">{{e_avail}}</span>
-              <span class="count-onorder" id="qtyonorder_east">{{qtyOnOrder}}</span>
-              <span class="title-cost">&nbspCost:&nbsp</span>
-              <span class="count-cost" id="replcost_east">{{replCost}}</span>
-              <span class="label-reserved">Reserved:</span>
-              <span class="rsvd" id="qtyreserved_east">{{qtyReserved}}</span>
-
-            </div>
-						<div class="">
-              <span class="desc">On Hand</span>
-              <span class="desc-avail">Available</span>
-              <span class="label-onorder">On Order</span> 
-              <span class="label-comm">Comitted:</span>
-              <span class="comm" id="qtycommit_east">0</span>
-            </div>
+      <i class="fa fa-building-o"></i>    
+        <div class="title">{{city}}</div>
+        <div class="">
+          <span class="count" id="qtyonhand_east">{{Values.Qtyonhand_east | number : 0}}</span>
+          <span class="title-cost">&nbspCost:&nbsp</span>
+          <span class="count-cost" id="avgcost_east">{{Values.Avgcost_east | currency : $ : 2}}</span>
+          <span class="count-cost-avail" id="qtyavail_east">{{Values.Qtyonhand_east -- Values.eastValues.Qtyreserved_east -- Values.eastValues.Qtycommit_east}}</span>
+          <span class="count-onorder" id="qtyonorder_east">{{Values.Qtyonorder_east | number : 0}}</span>
+          <span class="title-cost">&nbspCost:&nbsp</span>
+          <span class="count-cost" id="replcost_east">{{Values.Replcost_east |  currency : $ : 2 }}</span>
+          <span class="label-reserved">Reserved:</span>
+          <span class="rsvd" id="qtyreserved_east">{{Values.Qtyreserved_east | number : 0}}</span>
+        </div>
+        <div class="">
+          <span class="desc">On Hand</span>
+          <span class="desc-avail">Available</span>
+          <span class="label-onorder">On Order</span> 
+          <span class="label-comm">Comitted:</span>
+          <span class="comm" id="qtycommit_east">{{Values.Qtycommit_east | number : 0}}</span>
+        </div>
  </span>
