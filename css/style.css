@@ -1,0 +1,118 @@
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+body {
+    padding: 0;
+}
+
+.container-fluid {
+padding:  0;
+margin: 0;
+box-sizing: border-box;
+}
+
+.container-fluid, .row {
+    padding: 0;
+}
+
+.panel-body {
+    padding:  0px;
+    
+}
+
+#description_main {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#btnPrev {
+    height: 25px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left:  10px;
+    padding-right: 10px;
+}
+#btnNext {  
+    height: 25px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left:  10px;
+    padding-right: 10px;
+}
+#btnSearch {
+   height: 25px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left:  10px;
+    padding-right: 10px;
+   
+}
+#txtSearch {
+   height: 25px;
+
+}
+
+#lblInstock {
+    font-size: 14px;
+}
+#lblOnorder {
+   font-size:  14px; 
+}
+
+#btnModal {
+    width: 25px;
+    height: 25px;
+    padding: 0px;
+}
+.panel-heading {
+    padding:  4px;
+}
+
+#description {
+margin: auto;
+font-size: 14px;
+font-weight: bold;
+}
+
+#panel-heading {
+  padding-top: 0px;
+  padding-bottom: 0px;
+    
+}
+
+#lblOnhand {
+font-size: 12px;
+
+}
+#lblOncost {
+font-size: 12px;
+
+}
+#lblReserved {
+    font-size: 12px;
+    
+}
+#lblComitted {
+    font-size: 12px;
+    
+}
+#lblAvailable {
+    font-size: 12px;
+   
+}
+#lblonorder {
+    font-size: 12px;
+    
+}
+#lblreplcost {
+    font-size: 12px;
+    
+}
+
+.header {
+    text-align: center;
+    width: 100%;
+}
+/*
+.info-box .count {
+    width : 100px;
+}*/
