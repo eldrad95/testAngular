@@ -2,23 +2,24 @@
 <!-- <script type="text/javascript" src="inbox.js"></script> -->
 <span>
       <i class="fa fa-building-o"></i>    
-        <div class="title">{{city}}</div>
+        <div class="title">{{value.CITY}}</div>
         <div class="">
-          <span class="count" id="qtyonhand_east">{{Values.Qtyonhand_east | number : 0}}</span>
+          <span class="count" id="qtyonhand">{{value.qtyonhand | number : 0}}</span>
           <span class="title-cost">&nbspCost:&nbsp</span>
-          <span class="count-cost" id="avgcost_east">{{Values.Avgcost_east | currency : $ : 2}}</span>
-          <span class="count-cost-avail" id="qtyavail_east">{{Values.Qtyonhand_east -- Values.eastValues.Qtyreserved_east -- Values.eastValues.Qtycommit_east}}</span>
-          <span class="count-onorder" id="qtyonorder_east">{{Values.Qtyonorder_east | number : 0}}</span>
+          <span class="count-cost" id="avgcost">{{value.avgcost | currency : $ : 2}}</span>
+          <span class="count-cost-avail" id="qtyavail">{{value.qtyonhand -- qtyreserved -- qtycommit}}</span>
+          <span class="count-onorder" id="qtyonorder">{{value.qtyonorder | number : 0}}</span>
           <span class="title-cost">&nbspCost:&nbsp</span>
-          <span class="count-cost" id="replcost_east">{{Values.Replcost_east |  currency : $ : 2 }}</span>
+          <span class="count-cost" id="replcost">{{value.replcost |  currency : $ : 2 }}</span>
           <span class="label-reserved">Reserved:</span>
-          <span class="rsvd" id="qtyreserved_east">{{Values.Qtyreserved_east | number : 0}}</span>
+          <span class="rsvd" id="qtyreserved">{{value.qtyreserved | number : 0}}</span>
         </div>
         <div class="">
           <span class="desc">On Hand</span>
           <span class="desc-avail">Available</span>
           <span class="label-onorder">On Order</span> 
           <span class="label-comm">Comitted:</span>
-          <span class="comm" id="qtycommit_east">{{Values.Qtycommit_east | number : 0}}</span>
+          <span class="comm" id="qtycommit">{{value.qtycommit | number : 0}}</span>
         </div>
+        <br/>
  </span>
