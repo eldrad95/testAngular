@@ -1,0 +1,37 @@
+<div class="row">
+                        <div class="col-lg-6">
+                      <!--Project Activity start-->
+                      <section class="panel">
+                          <div class="panel-body progress-panel">
+                            <div class="row">
+                              <div class="col-lg-8 task-progress pull-left">
+                                  <h1>Customer Orders</h1>                                  
+                              </div>
+                              <div class="col-lg-4">
+                                <span class="profile-ava pull-right">
+                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                </span>                                
+                              </div>
+                            </div>
+                          </div>
+                          <table class="table table-hover personal-task">
+<thead>
+      <tr>
+        <th><i class="fa fa-building-o" aria-hidden="true"></i> Customer #</th>
+        <th>Customer Name</th>
+        <th><i class="fa fa-building-o" aria-hidden="true"></i> Ship To</th>
+        <th>Quantity</th>
+        <th>Order Number</th>
+      </tr>
+      <tr ng-repeat="CustOrd in CustOrds">
+        <td>{{CustOrd.custno}}</td>
+        <td>{{CustOrd.name}}</td>
+        <td>{{CustOrd.shipto}}</td>
+        <td>{{CustOrd.qtyord}}</td>
+        <td>{{CustOrd.orderno}}-{{CustOrd.ordersuf}}</td>
+      </tr>
+</thead>
+</table>
+</section>
+</div>
+</div>

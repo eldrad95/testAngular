@@ -7,7 +7,7 @@
           <span class="count" id="qtyonhand">{{value.qtyonhand | number : 0}}</span>
           <span class="title-cost">&nbspCost:&nbsp</span>
           <span class="count-cost" id="avgcost">{{value.avgcost | currency : $ : 2}}</span>
-          <span class="count-cost-avail" id="qtyavail">{{value.qtyonhand -- qtyreserved -- qtycommit}}</span>
+          <span class="count-cost-avail" id="qtyavail">{{value.qtyonhand -- value.qtyreserved -- value.qtycommit | number : 0}}</span>
           <span class="count-onorder" id="qtyonorder">{{value.qtyonorder | number : 0}}</span>
           <span class="title-cost">&nbspCost:&nbsp</span>
           <span class="count-cost" id="replcost">{{value.replcost |  currency : $ : 2 }}</span>

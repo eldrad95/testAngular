@@ -15,13 +15,20 @@ var myWebPart = angular.module('MyWebPart',['ui.bootstrap']).directive('ngEnter'
 
 myWebPart.factory('Values', function(){
 	var ob = {}
-	ob.eastValues = {};
+	ob.topValues = {};
+	ob.CustordValues = {};
 	ob.setValues = function(newobj) {
-		ob.eastValues = newobj;
+		ob.topValues = newobj;
 
 	};
 	ob.getValues = function() {
-		return ob.eastValues;
+		return ob.topValues;
+	}
+	ob.setCustOrdValues = function(newobj) {
+		ob.CustordValues = newobj;
+	}
+	ob.getCustOrdValues = function(newobj){
+		return ob.CustordValues;
 	}
 	return ob;
 	
@@ -34,19 +41,27 @@ myWebPart.controller('infoBox', function($scope, $interval, Values){
 	$interval($scope.getData,500);
 });
 
+
+myWebPart.controller('custOrdTable',function($scope,$interval,Values) {
+	$scope.getData= function(){
+		$scope.CustOrds = Values.getCustOrdValues();
+	}
+	$interval($scope.getData,500);
+	});
+
 myWebPart.controller('searchController', function($scope,$http, Values){
 	$scope.headerTitle = 'Product Description...';
 	var Researchitems = [];
 	var data ;
 	$scope.search = function(Searchinput) {
-		if (searchInput != '')
+		if (Searchinput != '')
 		{
 			if (Researchitems.indexOf(Searchinput) == -1)
 			{
 				Researchitems.push(Searchinput);
 			}
-			var url = '../AngularService/WebServiceAngular.FleetSpecService.svc/FleetSpecService/?product=' 
-			+ Searchinput;
+			var url = '../AngularService/WebServiceAngular.FleetSpecService.svc/FleetSpecService/?product=' + Searchinput;
+			var custordUrl = '../AngularService/WebServiceAngular.FleetSpecService.svc/FleetSpecService/custord?product=' + Searchinput;
 			var retourData;
 			$http.get(url)
 			.success(function succesCallBack(response) {
@@ -54,7 +69,12 @@ myWebPart.controller('searchController', function($scope,$http, Values){
 				$scope.headerTitle = Values.getValues()[0].descrip;
 			},function errorCallBack(response){
 				alert(response.data);
-			})
+			});
+			$http.get(custordUrl).success(function succesCallBack(response) {
+				Values.setCustOrdValues(response);
+			},function errorCallBack(response){
+				alter(response.data);
+			});
 		}
 	}
 
