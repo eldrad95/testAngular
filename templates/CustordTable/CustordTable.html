@@ -23,7 +23,7 @@
         <th>Quantity</th>
         <th>Order Number</th>
       </tr>
-      <tr ng-repeat="CustOrd in CustOrds">
+      <tr ng-repeat="CustOrd in custOrdTable.CustOrds" ng-animate="animate">
         <td>{{CustOrd.custno}}</td>
         <td>{{CustOrd.name}}</td>
         <td>{{CustOrd.shipto}}</td>

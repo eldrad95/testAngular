@@ -34,26 +34,34 @@ myWebPart.factory('Values', function(){
 	
 });
 
-myWebPart.controller('infoBox', function($scope, $interval, Values){
-	$scope.getData = function() {
-		$scope.Values = Values.getValues();
-	}
-	$interval($scope.getData,500);
+myWebPart.service('test',function(){
+	var test = this;
+	test.infoBoxValues = [];
+	test.CustordValues = [];
+});
+
+myWebPart.controller('infoBox', function( $interval, Values, test){
+	var infoBox = this;
+	// $scope.getData = function() {
+	// 	$scope.Values = Values.getValues();
+	// }
+	// $interval($scope.getData,500);
+	infoBox.Values = test.infoBoxValues;
 });
 
 
-myWebPart.controller('custOrdTable',function($scope,$interval,Values) {
-	$scope.getData= function(){
-		$scope.CustOrds = Values.getCustOrdValues();
-	}
-	$interval($scope.getData,500);
+myWebPart.controller('custOrdTable',function($interval,Values, test) {
+	var custOrdTable = this;
+	custOrdTable.CustOrds =test.CustordValues;
 	});
 
-myWebPart.controller('searchController', function($scope,$http, Values){
-	$scope.headerTitle = 'Product Description...';
+myWebPart.controller('searchController', function($http, Values,test){
+	var searchController = this;
+	searchController.headerTitle = 'Product Description...';
 	var Researchitems = [];
 	var data ;
-	$scope.search = function(Searchinput) {
+	var testdata = test;
+	searchController.search = function(Searchinput) {
 		if (Searchinput != '')
 		{
 			if (Researchitems.indexOf(Searchinput) == -1)
@@ -65,40 +73,40 @@ myWebPart.controller('searchController', function($scope,$http, Values){
 			var retourData;
 			$http.get(url)
 			.success(function succesCallBack(response) {
-				Values.setValues(response);
-				$scope.headerTitle = Values.getValues()[0].descrip;
+				angular.copy(response, testdata.infoBoxValues);
+				searchController.headerTitle = testdata.infoBoxValues[0].descrip;
 			},function errorCallBack(response){
 				alert(response.data);
 			});
 			$http.get(custordUrl).success(function succesCallBack(response) {
-				Values.setCustOrdValues(response);
+				angular.copy(response, testdata.CustordValues);
 			},function errorCallBack(response){
 				alter(response.data);
 			});
 		}
 	}
 
-	$scope.previous = function() {
-		if($scope.searchInput !== '' && Researchitems.indexOf($scope.searchInput) > 0)
+	searchController.previous = function() {
+		if(searchController.searchInput !== '' && Researchitems.indexOf(searchController.searchInput) > 0)
 		{
-			$scope.searchInput = Researchitems[Researchitems.indexOf($scope.searchInput) -1] ;
+			searchController.searchInput = Researchitems[Researchitems.indexOf(searchController.searchInput) -1] ;
 		}
-		else if (Researchitems.indexOf($scope.searchInput) == 0)
+		else if (Researchitems.indexOf(searchController.searchInput) == 0)
 		{
 			return;
 		}
 		else {
-			$scope.searchInput = Researchitems[Researchitems.length -1 ];
+			searchController.searchInput = Researchitems[Researchitems.length -1 ];
 		}
 	}
 
-	$scope.next = function() {
-		if($scope.searchInput !== '' && Researchitems.indexOf($scope.searchInput) < Researchitems.length -1)
+	searchController.next = function() {
+		if(searchController.searchInput !== '' && Researchitems.indexOf(searchController.searchInput) < Researchitems.length -1)
 		{
-			$scope.searchInput = Researchitems[Researchitems.indexOf($scope.searchInput) +1] ;
+			searchController.searchInput = Researchitems[Researchitems.indexOf(searchController.searchInput) +1] ;
 		}
 		else {
-			$scope.searchInput = '';
+			searchController.searchInput = '';
 		}
 	}
 	

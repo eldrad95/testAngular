@@ -13,20 +13,20 @@
 	 <section id="container" class="" ng-app="MyWebPart">
 			  <div class="row">
 				<div class="col-lg-6">
-             	<div id="searchModule" ng-controller="searchController">
-					<h3 class="page-header"   align="center" id="description_main">{{headerTitle}}</h3>
+             	<div id="searchModule" ng-controller="searchController as searchController">
+					<h3 class="page-header"   align="center" id="description_main" ng-model="headerTitle">{{searchController.headerTitle}}</h3>
             <div class="input-group" >
               <span class="input-group-btn">
-                <button class="btn btn-default" id="btnPrev" ng-click="previous()"  type="button"><i class="fa fa-reply" aria-hidden="true"></i></button>
+                <button class="btn btn-default" id="btnPrev" ng-click="searchController.previous()"  type="button"><i class="fa fa-reply" aria-hidden="true"></i></button>
               </span>
-                <input type="text" class="form-control" ng-model="searchInput" ng-enter="search(searchInput)"  id="txtSearch" name="product" placeholder="Search product...">
+                <input type="text" class="form-control" ng-model="searchController.searchInput" ng-enter="searchController.search(searchController.searchInput)"  id="txtSearch" name="product" placeholder="Search product...">
               <span class="input-group-btn">
-                <button class="btn btn-default" id="btnNext" ng-click="next()" type="button"><i class="fa fa-share" aria-hidden="true"></i>
+                <button class="btn btn-default" id="btnNext" ng-click="searchController.next()" type="button"><i class="fa fa-share" aria-hidden="true"></i>
               </span>
                 </button>
               </span>
               <span class="input-group-btn">
-                <button class="btn btn-default" id="btnSearch"  ng-click="search(searchInput)"><i class="fa fa-search" aria-hidden="true"></i>
+                <button class="btn btn-default" id="btnSearch"  ng-click="searchController.search(searchInput)"><i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </span>  		
             </div> 
@@ -37,10 +37,10 @@
 			</div><br>
               
     <div class="row">
-          <span ng-controller="infoBox" ng-show="Values.length">
+          <span ng-controller="infoBox as infoBox" ng-show="infoBox.Values.length" ng-animate="animate">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
           <div class="info-box blue-bg">
-           <span ng-repeat="value in Values" >
+           <span ng-repeat="value in infoBox.Values" >
                <span ng-include="'templates/infobox/infoBox.html'"></span>
            </span>
           </div><!--/.info-box-->     
@@ -48,7 +48,7 @@
            </span>
 
       </div><!--/.row-->
- <span ng-controller="custOrdTable">
+ <span ng-controller="custOrdTable as custOrdTable">
   <span ng-include="'templates/CustordTable/CustordTable.html'" ></span>
  </span>
 
@@ -56,6 +56,7 @@
 
 	<script type="text/javascript" src="js/vendor/angular.js"></script>
 	<script type="text/javascript" src="Bootstrap/js/ui-bootstrap-2.0.2.js"></script>
+  <script type="text/javascript" src="js/vendor/angular-animate.js"></script>
 	<script type="text/javascript" src="js/MyWebPart.js"></script>
 	<script type="text/javascript" src="js/fa.js"></script>
 </body>
