@@ -37,15 +37,15 @@
 			</div><br>
               
     <div class="row">
+          <span ng-controller="infoBox" ng-show="Values.length">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
           <div class="info-box blue-bg">
-          <span ng-controller="infoBox">
-           <span ng-repeat="value in Values" ng-show="Values.length">
+           <span ng-repeat="value in Values" >
                <span ng-include="'templates/infobox/infoBox.html'"></span>
-           </span>
            </span>
           </div><!--/.info-box-->     
         </div><!--/.col-->
+           </span>
 
       </div><!--/.row-->
  <span ng-controller="custOrdTable">
